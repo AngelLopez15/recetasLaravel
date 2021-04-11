@@ -47,12 +47,15 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    // Aqui esta el calidador del formulario. Aqui es donde debemos poner que campos
+    // queremos que sean obligatorios.
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'url' => ['required', 'string', 'url'],
         ]);
     }
 
@@ -62,12 +65,14 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+    // Para que el campo se agregue tambien debemos de ponerlo en esta funcion create
     protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'url' => $data['url'],
         ]);
     }
 }

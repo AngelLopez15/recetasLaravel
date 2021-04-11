@@ -16,10 +16,13 @@ class User extends Authenticatable
      *
      * @var array
      */
+    // En fileable debemos de poner en el arreglo el nuevo campo que queremos que se
+    // inserte en la base de datos. De lo contrario no se podra agregar.
     protected $fillable = [
         'name',
         'email',
         'password',
+        'url',
     ];
 
     /**
