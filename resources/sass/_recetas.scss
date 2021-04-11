@@ -1,0 +1,13 @@
+body {
+    font-family: $parrafos-font-family;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-family: $font-family-sans-serif;
+    font-size: 2rem;
+
+    &:hover {
+        color: #fff;
+    }
+}
